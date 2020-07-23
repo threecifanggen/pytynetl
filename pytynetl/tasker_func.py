@@ -36,12 +36,17 @@ class BaseTasker:
         return self.pipe_func(other)
 
 
-def f_(retrying: Optional[int] = None):
+def f_(*args, **kwargs):
     """Decorator For Instantialise the BaseTasker
 
     Args:
         retrying ([int, optional): [description]. Defaults to None.
     """
-    def helper(func):
-        return BaseTasker(func, retrying)
-    return helper
+    if len(args) == 1 and callable(args[0]):
+        ## If there has no parameter in decorator
+        return BaseTasker(args[0])
+    else:
+        ## There has parameter(s) in decorator
+        def helper(func):
+            return BaseTasker(func, *args, **kwargs)
+        return helper

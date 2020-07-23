@@ -27,7 +27,7 @@ def test_pipe_run():
     def f(x):
         return x + 1
 
-    @f_(retrying=2)
+    @f_
     def g(x):
         return x * 2
 
@@ -36,7 +36,7 @@ def test_pipe_run():
 
 
 def test_pipe_run_with_multiple_args():
-    @f_(retrying=1)
+    @f_
     def f(x, y):
         return x - y + 1
 
