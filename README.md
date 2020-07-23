@@ -6,8 +6,7 @@ A Light-weighted Framework for ETL Task. The name `pytynetl` means "a tiny ETL f
 
 ## Function Composing
 
-`pytynetl` provides an `f_` decorator to quickly composing functions to execute like a queer. For example, if you want to regard the functions below as a whole pipeline, using `f_` makes it more neatly. This feature
-makes it possible to use functional programming to handle an ETL project, especially if it is just a list of tasks requiring linear executing.
+`pytynetl` provides an `f_` decorator to quickly composing functions to execute like a queer. For example, if you want to regard the functions below as a whole pipeline, using `>>` operator (can be read as "and then") makes it more neatly.  This feature makes it possible to use functional programming to handle an ETL project, especially if it is just a list of tasks requiring linear executing.
 
 ```python
 def f(x): return x + 1
