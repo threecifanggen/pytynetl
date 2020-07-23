@@ -7,8 +7,26 @@ authors = ["huangbaochen <huangbaochenwo@live.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 
+
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+pylint = "^2.5.3"
+pytest-cov = "^2.10.0"
+pytest-sugar = "^0.9.3"
+ipython = "<7.0.0"
+sphinx = "^3.1.1"
+rinohtype = "^0.4.0"
+recommonmark = "^0.6.0"
+coverage-badge = "^1.0.1"
+sphinx-rtd-theme = "^0.5.0"
+mypy = "^0.782"
+sphinxemoji = "^0.1.6"
+sphinx_rtd_theme = "^0.5.0"
+sphinxcontrib-mermaid = "^0.4.0"
+
+[tool.poetry.scripts]
+test = "shell:test"
+docs = "shell:docs"
 
 [build-system]
 requires = ["poetry>=0.12"]
