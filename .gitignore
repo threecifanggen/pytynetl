@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# pytest-cov
+cov.xml
+cov_html/
+cov_html/*
