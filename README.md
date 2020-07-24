@@ -68,6 +68,8 @@ def pow2(x):
     return x ** 2
 ```
 
+### Edge Operators
+
 Edge operators attach two nodes. Two kinds of edges can defined here: dependent-task edges and independent-task edges.
 
 While you want to put the formal task's output as input to deliver to the next task, dependent-task edges operator `>>=`/`<<=` can be applied here.

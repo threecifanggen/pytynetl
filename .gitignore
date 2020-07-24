@@ -141,3 +141,7 @@ cov_annotate/*
 
 ## poetry
 poetry.lock
+
+## vscode
+.vscode/
+.vscode/*
