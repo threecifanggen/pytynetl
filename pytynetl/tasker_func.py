@@ -4,7 +4,7 @@ from .exceptions import (
     IllegalTypeToCastAsABaseTasker
 )
 
-class BaseTasker:
+class BaseTasker(object):
     """BaseTasker For ETL
     """
     def __init__(
@@ -38,7 +38,7 @@ class BaseTasker:
             return other.func(self.func(*args, **kargs))
         return helper
 
-    def __rshift__(self, other):
+    def __ge__(self, other):
         return self.pipe_func(other)
 
     def execute(self, *args, **kargs):
@@ -48,21 +48,13 @@ class BaseTasker:
             except:
                 if num == 1:
                     if self.if_error is not None:
-                        return self.if_error
+                        return self.if_error()
                     else:
                         raise
                 else:
                     return helper(num-1)
         return helper()
 
-    def pipe_execute(self, other, is_depend=True):
-        def helper(*args, **kargs):
-            if is_depend:
-                return other.execute(self.execute(*args, **kargs))
-            else:
-                self.execute(*args, **kargs)
-                return self.execute(*args, **kargs)
-        return helper
 
 def f_(*args, **kwargs):
     """Decorator For Instantialise the BaseTasker

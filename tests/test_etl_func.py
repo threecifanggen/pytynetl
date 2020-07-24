@@ -31,8 +31,8 @@ def test_pipe_run():
     def g(x):
         return x * 2
 
-    assert (f >> g)(1) == 4
-    assert (g >> f)(1) == 3
+    assert (f >= g)(1) == 4
+    assert (g >= f)(1) == 3
 
 
 def test_pipe_run_with_multiple_args():
@@ -44,4 +44,4 @@ def test_pipe_run_with_multiple_args():
     def g(x):
         return x * 2
 
-    assert (f >> g)(2, 1) == 4
+    assert (f >= g)(2, 1) == 4
