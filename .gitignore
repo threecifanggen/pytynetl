@@ -135,3 +135,9 @@ cov_html/
 cov_html/*
 cov_annotate/
 cov_annotate/*
+
+## source
+.cph_*
+
+## poetry
+poetry.lock

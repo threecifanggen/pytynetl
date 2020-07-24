@@ -122,6 +122,11 @@ class ETLDAG(object):
     def __contains__(self, node: ETLNode) -> bool:
         """Contain operator
 
+        Examples:
+
+            >>> node in dag
+            True
+
         Args:
             node (ETLNode): checking node
 
