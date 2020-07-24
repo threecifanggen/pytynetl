@@ -1,10 +1,10 @@
 from pytynetl.etl_dag import (
     node_,
-    etl_dag_list,
+    etl_dag,
 )
 
 def test_dag_operator():
-    dag = etl_dag_list()
+    dag = etl_dag()
 
     @node_
     def add1(x):
@@ -34,7 +34,6 @@ def test_dag_operator():
     assert dag['pow2'](1) == 1
 
 def test_generate_dag_from_list():
-    dag = etl_dag_list()
 
     @node_
     def add1(x):
@@ -48,7 +47,7 @@ def test_generate_dag_from_list():
     def pow2(x):
         return x ** 2
     
-    etl_dag_list(add1, mul2, pow2)
+    dag = etl_dag(add1, mul2, pow2)
 
     assert (add1 in dag)
     assert (mul2 in dag)

@@ -155,7 +155,7 @@ def node_(*args, **kwargs) -> ETLNode:
             return ETLNode(func, *args, **kwargs)
         return helper
 
-def etl_dag_list(*args) -> ETLDAG:
+def etl_dag(*args) -> ETLDAG:
     """Using args as ETLDAG to DAQ
 
     Returns:
