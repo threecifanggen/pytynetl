@@ -94,6 +94,8 @@ class ETLNode(BaseTasker):
 
 
 class ETLDAG(object):
+    """ETLDAG
+    """
     nodes: Dict[str, ETLNode] = dict()
 
     def __init__(self, nodes_iterable: Iterable[ETLNode] = None):
@@ -117,7 +119,20 @@ class ETLDAG(object):
                 return (node @ self)
             return helper
 
-    def __contains__(self, node: ETLNode):
+    def __contains__(self, node: ETLNode) -> bool:
+        """Contain operator
+
+        Examples:
+
+            >>> node in dag
+            True
+
+        Args:
+            node (ETLNode): checking node
+
+        Returns:
+            bool: Where node is in DAQ
+        """
         if node.task_name in self.nodes.keys():
             return node.__hash__ == self.nodes[node.task_name].__hash__
         else:
@@ -127,7 +142,12 @@ class ETLDAG(object):
         return self.nodes[k]
 
 
-def node_(*args, **kwargs):
+def node_(*args, **kwargs) -> ETLNode:
+    """ETLNode Maker Decorator
+
+    Returns:
+        ETLNode
+    """
     if len(args) == 1 and callable(args[0]):
         return ETLNode(args[0])
     else:
@@ -135,5 +155,10 @@ def node_(*args, **kwargs):
             return ETLNode(func, *args, **kwargs)
         return helper
 
-def etl_dag_list(*args):
+def etl_dag(*args) -> ETLDAG:
+    """Using args as ETLDAG to DAQ
+
+    Returns:
+        ETLDAG: Generater DAQ
+    """
     return ETLDAG(args)
